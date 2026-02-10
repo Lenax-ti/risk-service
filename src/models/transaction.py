@@ -10,24 +10,24 @@ class Transaction:
                 'region': self.region}
 
 
-class RiskCalculator:
-    def calculate(self, transactions: Transaction) -> float:
-        # self.transactions = transactions
-        risk_score = 1.0
-        if  18 < transactions.hour < 22:
-            risk_score -= 0.1
-        elif 22 < transactions.hour:
-            risk_score -= 0.2
-
-        if transactions.region != 'RU':
-            risk_score -= 0.2
-
-        if 50000 <= transactions.amount < 100000:
-            risk_score -= 0.2
-        elif transactions.amount >= 100000:
-            risk_score -= 0.25
-
-        return risk_score
+# class RiskCalculator:
+#     def calculate(self, transactions: Transaction) -> float:
+#         # self.transactions = transactions
+#         risk_score = 1.0
+#         if  18 < transactions.hour < 22:
+#             risk_score -= 0.1
+#         elif 22 < transactions.hour:
+#             risk_score -= 0.2
+#
+#         if transactions.region != 'RU':
+#             risk_score -= 0.2
+#
+#         if 50000 <= transactions.amount < 100000:
+#             risk_score -= 0.2
+#         elif transactions.amount >= 100000:
+#             risk_score -= 0.25
+#
+#         return risk_score
 
 class DecisionEngine:
     def decide(self, risk_score: float) -> str:
